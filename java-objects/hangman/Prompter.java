@@ -7,6 +7,7 @@ class Prompter {
         this.game = game;
     }
 
+    // Request guess from user and return to applyGuess
     public boolean promptForGuess() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter a letter:  ");
@@ -15,8 +16,11 @@ class Prompter {
         return game.applyGuess(guess);
     }
 
+    // Show progress of guesses
     public void displayProgress() {
-        System.out.printf("Try to solve: %s%n", 
-        game.getCurrentProgress());
+        System.out.printf("You have %d tries left to try to solve: %s%n", 
+            game.getRemainingTries(),
+            game.getCurrentProgress()
+            );
     }
 }
